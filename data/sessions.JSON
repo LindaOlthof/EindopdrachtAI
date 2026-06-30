@@ -3,5 +3,40 @@
         "game": "Ticket to ride",
         "date": "26-06-2026",
         "winner": "Linda"
+    },
+    {
+        "game": "Catan",
+        "date": "20-06-2026",
+        "winner": "Wendy"
+    },
+    {
+        "game": "Ticket to ride",
+        "date": "27-06-2026",
+        "winner": "Linda"
+    },
+    {
+        "game": "Terraforming Mars",
+        "date": "25-06-2026",
+        "winner": "Richard"
+    },
+    {
+        "game": "Ticket to ride",
+        "date": "23-06-2026",
+        "winner": "Linda"
+    },
+    {
+        "game": "Catan",
+        "date": "23-06-2026",
+        "winner": "Wendy"
+    },
+    {
+        "game": "Ticket to ride",
+        "date": "27-06-2026",
+        "winner": "Linda"
+    },
+    {
+        "game": "Terraforming Mars",
+        "date": "23-06-2026",
+        "winner": "Richard"
     }
 ]

@@ -6,6 +6,7 @@ from database import (
     get_games,
     add_session as save_session
 )
+from statistics import show_statistics as display_statistics
 
 
 def show_menu():
@@ -36,7 +37,7 @@ def main():
 
         elif choice == "4":
             show_statistics()
-
+    
         elif choice == "5":
             running = False
             print("Programma afgesloten.")
@@ -93,9 +94,6 @@ def register_session():
 
 
 def show_statistics():
-    print("\nStatistieken")
-
-    print("Hier komen later de statistieken.")
-
+    display_statistics()
 
 main()
