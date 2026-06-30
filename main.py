@@ -1,6 +1,7 @@
 from game import Game
 from player import Player
 from session import PlaySession
+from database import add_game as save_game
 
 
 def show_menu():
@@ -49,7 +50,9 @@ def add_game():
 
     game = Game(name, players, duration)
 
-    print(f"{game.name} is toegevoegd.")
+    save_game(game)
+
+    print(f"{game.name} is opgeslagen.")
 
 
 def view_games():
