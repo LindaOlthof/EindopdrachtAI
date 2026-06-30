@@ -1,4 +1,3 @@
-#Test branches
 from game import Game
 from player import Player
 from session import PlaySession
