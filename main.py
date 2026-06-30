@@ -1,7 +1,11 @@
 from game import Game
 from player import Player
 from session import PlaySession
-from database import add_game as save_game, get_games
+from database import (
+    add_game as save_game,
+    get_games,
+    add_session as save_session
+)
 
 
 def show_menu():
@@ -77,7 +81,13 @@ def register_session():
     date = input("Datum: ")
     winner = input("Winnaar: ")
 
-    session = PlaySession(game, date, winner)
+    session = PlaySession(
+        game,
+        date,
+        winner
+    )
+
+    save_session(session)
 
     print("Speelbeurt opgeslagen.")
 
