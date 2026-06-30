@@ -1,7 +1,7 @@
 from game import Game
 from player import Player
 from session import PlaySession
-from database import add_game as save_game
+from database import add_game as save_game, get_games
 
 
 def show_menu():
@@ -58,8 +58,17 @@ def add_game():
 def view_games():
     print("\nBordspellen:")
 
-    print("Hier komen later de opgeslagen spellen.")
+    games = get_games()
 
+    if len(games) == 0:
+        print("Er zijn nog geen bordspellen opgeslagen.")
+        return
+
+    for game in games:
+        print("----------------")
+        print(f"Naam: {game['name']}")
+        print(f"Aantal spelers: {game['players']}")
+        print(f"Speelduur: {game['duration']} minuten")
 
 def register_session():
     print("\nSpeelbeurt registreren")
