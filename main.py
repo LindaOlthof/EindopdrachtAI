@@ -8,7 +8,10 @@ from database import (
 )
 from statistics import (
     show_statistics as display_statistics,
-    get_average_duration
+    get_average_duration,
+    get_total_games,
+    top_games_per_gameplay,
+    best_player_per_game
 )
 
 GAMEPLAY_OPTIONS = [
@@ -236,6 +239,36 @@ def register_session():
 
 
 def show_statistics():
-    display_statistics()
+
+    print("\n=== STATISTIEKEN ===")
+
+    print(
+        f"Aantal spellen in bezit: "
+        f"{get_total_games()}"
+    )
+
+    print("\nTop 3 spellen per gameplay:")
+
+    top_games = top_games_per_gameplay()
+
+    for gameplay, games in top_games.items():
+
+        print(f"\n{gameplay}:")
+
+        for name, count in games:
+
+            print(
+                f"- {name} ({count} keer gespeeld)"
+            )
+
+    print("\nBeste speler per spel:")
+
+    best_players = best_player_per_game()
+
+    for game, player in best_players.items():
+
+        print(
+            f"- {game}: {player}"
+        )
 
 main()

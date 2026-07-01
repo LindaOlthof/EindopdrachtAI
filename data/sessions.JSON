@@ -84,5 +84,27 @@
         "duration": "20",
         "winner": "Christiaan",
         "winner_score": "nvt"
+    },
+    {
+        "game": "Ticket to ride - M\u00e4rklin",
+        "date": "25-12-2025",
+        "players": [
+            "Christiaan",
+            " Wendy"
+        ],
+        "duration": "25",
+        "winner": "Wendy",
+        "winner_score": "nvt"
+    },
+    {
+        "game": "Ticket to ride - M\u00e4rklin",
+        "date": "30-12-2019",
+        "players": [
+            "Wendy",
+            " Christiaan"
+        ],
+        "duration": "Wendy",
+        "winner": "Wendy",
+        "winner_score": "nvt"
     }
 ]
