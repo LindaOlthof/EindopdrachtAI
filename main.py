@@ -80,7 +80,7 @@ def main():
             register_session()
 
         elif choice == "4":
-            show_statistics()
+            display_statistics()
     
         elif choice == "5":
             running = False
@@ -172,9 +172,37 @@ def register_session():
 
     print("\nSpeelbeurt registreren")
 
-    game = input("Welk spel is gespeeld? ")
+    games = get_games()
 
-    version = input("Welke versie is gespeeld? ")  # ✅ DIT MISTE JE
+    if len(games) == 0:
+        print("Geen spellen beschikbaar.")
+        return
+
+
+    print("\nBeschikbare spellen:")
+
+    for index, game in enumerate(games, start=1):
+
+        print(
+            f"{index}. {game['name']} - {game['version']}"
+        )
+
+
+    while True:
+
+        choice = input("Kies nummer: ")
+
+        if choice.isdigit():
+
+            number = int(choice)
+
+            if 1 <= number <= len(games):
+
+                selected_game = games[number - 1]
+                break
+
+
+        print("Ongeldige keuze, probeer opnieuw.")
 
     date = input("Datum: ")
 
@@ -189,8 +217,8 @@ def register_session():
     winner_score = input("Score van winnaar: ")
 
     session = {
-        "game": game,
-        "version": version,
+        "game": selected_game["name"],
+        "version": selected_game["version"],
         "date": date,
         "players": players,
         "duration": int(duration),
@@ -203,37 +231,6 @@ def register_session():
     print("Speelbeurt opgeslagen.")
 
 
-def show_statistics():
 
-    print("\n=== STATISTIEKEN ===")
-
-    print(
-        f"Aantal spellen in bezit: "
-        f"{get_total_games()}"
-    )
-
-    print("\nTop 3 spellen per gameplay:")
-
-    top_games = top_games_per_gameplay()
-
-    for gameplay, games in top_games.items():
-
-        print(f"\n{gameplay}:")
-
-        for name, count in games:
-
-            print(
-                f"- {name} ({count} keer gespeeld)"
-            )
-
-    print("\nBeste speler per spel:")
-
-    best_players = best_player_per_game()
-
-    for game, player in best_players.items():
-
-        print(
-            f"- {game}: {player}"
-        )
 
 main()

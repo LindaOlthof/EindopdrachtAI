@@ -1,6 +1,8 @@
 from database import get_games, get_sessions
 
+def create_game_key(name, version):
 
+    return f"{name} | {version}"
 # ----------------------------
 # STATISTIEKEN OVERZICHT
 # ----------------------------
@@ -27,9 +29,8 @@ def show_statistics():
             best_player = best_players.get(name, "Onbekend")
 
             print(f"- {name} ({count} keer gespeeld)")
-            print(f"   Beste speler: {best_player}")
-            print()  # extra lege regel voor layout
-            
+            print(f"   └ Beste speler: {best_player}")
+            print("")  # kleine visuele scheiding
 # ----------------------------
 # GEMIDDELDE SPEELDUUR
 # ----------------------------
@@ -78,14 +79,22 @@ def top_games_per_gameplay():
     for game in games:
 
         gameplay = game["gameplay"]
-        name = game["name"]
+        name = create_game_key(
+        game["name"],
+        game["version"]
+        )
 
         count = 0
 
         for session in sessions:
 
             # DIRECT MATCH
-            if session["game"] == name:
+            session_key = create_game_key(
+            session["game"],
+            session["version"]
+            )
+
+        if session_key == name:
                 count += 1
 
         if gameplay not in result:
@@ -116,7 +125,10 @@ def best_player_per_game():
 
     for session in sessions:
 
-        game = session["game"]
+        game = create_game_key(
+            session["game"],
+            session["version"]
+        )
         winner = session["winner"]
 
         if game not in result:

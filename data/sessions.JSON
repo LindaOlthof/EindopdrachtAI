@@ -37,5 +37,29 @@
         "duration": 60,
         "winner": "Christiaan",
         "winner_score": 70
+    },
+    {
+        "game": "Ticket to ride",
+        "version": "M\u00e4rklin",
+        "date": "23-02-2016",
+        "players": [
+            "Linda",
+            " Christiaan"
+        ],
+        "duration": 34,
+        "winner": "Linda",
+        "winner_score": 45
+    },
+    {
+        "game": "Ticket to ride",
+        "version": "Asia",
+        "date": "23-02-2018",
+        "players": [
+            "Richard",
+            " Linda"
+        ],
+        "duration": 50,
+        "winner": "Linda",
+        "winner_score": 60
     }
 ]

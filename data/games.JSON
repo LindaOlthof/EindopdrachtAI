@@ -31,5 +31,16 @@
         "min_age": "8",
         "difficulty": "2",
         "gameplay": "Area control/route building"
+    },
+    {
+        "name": "Ticket to ride",
+        "version": "Asia",
+        "type": "Uitbreiding",
+        "min_players": "2",
+        "max_players": "5",
+        "min_duration": "8",
+        "min_age": "8",
+        "difficulty": "2",
+        "gameplay": "Area control/route building"
     }
 ]
