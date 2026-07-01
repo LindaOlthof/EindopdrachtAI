@@ -51,5 +51,38 @@
         "duration": "45",
         "winner": "Christiaan",
         "winner_score": "25"
+    },
+    {
+        "game": "Catan",
+        "date": "23-02-2026",
+        "players": [
+            "Linda",
+            " Wendy"
+        ],
+        "duration": "45",
+        "winner": "Linda",
+        "winner_score": "nvt"
+    },
+    {
+        "game": "Ticket to ride - M\u00e4rklin",
+        "date": "23-02-2026",
+        "players": [
+            "Linda",
+            " Wendy"
+        ],
+        "duration": "45",
+        "winner": "Linda",
+        "winner_score": "nvt"
+    },
+    {
+        "game": "Ticket to ride - M\u00e4rklin",
+        "date": "25-06-2026",
+        "players": [
+            "Christiaan",
+            " Linda"
+        ],
+        "duration": "20",
+        "winner": "Christiaan",
+        "winner_score": "nvt"
     }
 ]

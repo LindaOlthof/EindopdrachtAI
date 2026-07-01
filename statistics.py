@@ -52,3 +52,26 @@ def show_statistics():
         f"Beste speler: {best_player} "
         f"({winner_counts[best_player]} overwinningen)"
     )
+    
+def get_average_duration(game_name):
+
+    sessions = get_sessions()
+
+    durations = []
+
+    for session in sessions:
+
+        if session["game"] == game_name:
+
+            durations.append(
+                int(session["duration"])
+            )
+
+
+    if len(durations) == 0:
+        return None
+
+
+    average = sum(durations) / len(durations)
+
+    return round(average)

@@ -6,7 +6,10 @@ from database import (
     get_games,
     add_session as save_session
 )
-from statistics import show_statistics as display_statistics
+from statistics import (
+    show_statistics as display_statistics,
+    get_average_duration
+)
 
 GAMEPLAY_OPTIONS = [
     "Coöperatief",
@@ -141,20 +144,40 @@ def view_games():
     for game in games:
         print("----------------")
         print(f"Naam: {game['name']}")
+
         print(
             f"Spelers: {game['min_players']} "
             f"tot {game['max_players']}"
         )
-        print(
-            f"Speelduur: vanaf "
-            f"{game['min_duration']} minuten"
+
+        average_duration = get_average_duration(
+            game["name"]
         )
-        print(f"Leeftijd: {game['min_age']}+")
+
+        if average_duration is None:
+            print(
+                f"Speelduur: vanaf "
+                f"{game['min_duration']} minuten"
+            )
+
+        else:
+            print(
+                f"Gemiddelde speelduur: "
+                f"{average_duration} minuten"
+            )
+
+        print(
+            f"Leeftijd: {game['min_age']}+"
+        )
+
         print(
             f"Moeilijkheid: "
             f"{game['difficulty']}/5"
         )
-        print(f"Gameplay: {game['gameplay']}")
+
+        print(
+            f"Gameplay: {game['gameplay']}"
+        )
         
 def register_session():
 
