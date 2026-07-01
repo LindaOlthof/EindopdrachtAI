@@ -62,15 +62,24 @@ def get_games():
 
 
 def add_session(session):
+
     sessions = load_data("sessions.json")
+
 
     sessions.append({
         "game": session.game,
         "date": session.date,
-        "winner": session.winner
+        "players": session.players,
+        "duration": session.duration,
+        "winner": session.winner,
+        "winner_score": session.winner_score
     })
 
-    save_data("sessions.json", sessions)
+
+    save_data(
+        "sessions.json",
+        sessions
+    )
 
 
 def get_sessions():

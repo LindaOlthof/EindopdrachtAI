@@ -157,21 +157,59 @@ def view_games():
         print(f"Gameplay: {game['gameplay']}")
         
 def register_session():
+
     print("\nSpeelbeurt registreren")
 
-    game = input("Welk spel is gespeeld? ")
-    date = input("Datum: ")
-    winner = input("Winnaar: ")
+
+    game = input(
+        "Welk spel is gespeeld? "
+    )
+
+
+    date = input(
+        "Datum: "
+    )
+
+
+    players_input = input(
+        "Welke spelers deden mee? "
+    )
+
+
+    players = players_input.split(",")
+
+
+    duration = input(
+        "Speelduur van het potje in minuten: "
+    )
+
+
+    winner = input(
+        "Winnaar: "
+    )
+
+
+    winner_score = input(
+        "Score van winnaar: "
+    )
+
 
     session = PlaySession(
         game,
         date,
-        winner
+        players,
+        duration,
+        winner,
+        winner_score
     )
+
 
     save_session(session)
 
-    print("Speelbeurt opgeslagen.")
+
+    print(
+        "Speelbeurt opgeslagen."
+    )
 
 
 def show_statistics():

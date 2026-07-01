@@ -38,5 +38,18 @@
         "game": "Terraforming Mars",
         "date": "23-06-2026",
         "winner": "Richard"
+    },
+    {
+        "game": "Ticket to ride",
+        "date": "23-04-2026",
+        "players": [
+            "Linda",
+            " Richard",
+            " Wendy",
+            " Christiaan"
+        ],
+        "duration": "45",
+        "winner": "Christiaan",
+        "winner_score": "25"
     }
 ]
