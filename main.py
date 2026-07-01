@@ -8,6 +8,45 @@ from database import (
 )
 from statistics import show_statistics as display_statistics
 
+GAMEPLAY_OPTIONS = [
+    "Coöperatief",
+    "Deck-building",
+    "Engine-building",
+    "Worker-placement",
+    "Sociale deductie/bluffen",
+    "Area control/route building",
+    "Roll/flip & write"
+]
+
+def choose_gameplay():
+
+    print("\nKies gameplay:")
+
+    for index, option in enumerate(GAMEPLAY_OPTIONS, start=1):
+        print(f"{index}. {option}")
+
+
+    while True:
+
+        choice = input(
+            "Kies nummer: "
+        )
+
+
+        if choice.isdigit():
+
+            number = int(choice)
+
+
+            if 1 <= number <= len(GAMEPLAY_OPTIONS):
+
+                return GAMEPLAY_OPTIONS[number - 1]
+
+
+        print(
+            "Ongeldige keuze, probeer opnieuw."
+        )
+
 
 def show_menu():
     print("\n=== Bordspellen Beheer ===")
@@ -71,9 +110,7 @@ def add_game():
         "Moeilijkheidsscore (1-5): "
     )
 
-    gameplay = input(
-        "Gameplay: "
-    )
+    gameplay = choose_gameplay()
 
 
     game = Game(

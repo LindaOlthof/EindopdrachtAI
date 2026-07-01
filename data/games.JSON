@@ -6,6 +6,15 @@
         "min_duration": "30",
         "min_age": "8",
         "difficulty": "2",
-        "gameplay": "Area control/Route building"
+        "gameplay": "Area control/route building"
+    },
+    {
+        "name": "Ticket to ride - Rails & Sails",
+        "min_players": "2",
+        "max_players": "5",
+        "min_duration": "30",
+        "min_age": "8",
+        "difficulty": "2",
+        "gameplay": "Area control/route building"
     }
 ]
