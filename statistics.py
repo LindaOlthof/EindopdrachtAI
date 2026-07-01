@@ -26,13 +26,10 @@ def show_statistics():
 
             best_player = best_players.get(name, "Onbekend")
 
-            print(
-                f"- {name} "
-                f"({count} keer gespeeld) "
-                f"| Beste speler: {best_player}"
-            )
-
-
+            print(f"- {name} ({count} keer gespeeld)")
+            print(f"   Beste speler: {best_player}")
+            print()  # extra lege regel voor layout
+            
 # ----------------------------
 # GEMIDDELDE SPEELDUUR
 # ----------------------------
@@ -44,7 +41,8 @@ def get_average_duration(game_name):
 
     for session in sessions:
 
-        if normalize_game_name(session["game"]) == game_name:
+        # ❗ DIRECT MATCH (geen normalisatie meer)
+        if session["game"] == game_name:
 
             durations.append(int(session["duration"]))
 
@@ -86,7 +84,8 @@ def top_games_per_gameplay():
 
         for session in sessions:
 
-            if normalize_game_name(session["game"]) == name:
+            # DIRECT MATCH
+            if session["game"] == name:
                 count += 1
 
         if gameplay not in result:
@@ -117,7 +116,7 @@ def best_player_per_game():
 
     for session in sessions:
 
-        game = normalize_game_name(session["game"])
+        game = session["game"]
         winner = session["winner"]
 
         if game not in result:
@@ -137,11 +136,3 @@ def best_player_per_game():
         )
 
     return result
-
-
-# ----------------------------
-# NORMALISEREN VAN GAME NAAM
-# ----------------------------
-def normalize_game_name(name):
-
-    return name.split(" - ")[0]

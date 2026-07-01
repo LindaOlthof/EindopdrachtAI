@@ -44,17 +44,7 @@ def add_game(game):
 
     games = load_data("games.json")
 
-    games.append({
-        "name": game["name"],
-        "version": game["version"],
-        "type": game["type"],
-        "min_players": game["min_players"],
-        "max_players": game["max_players"],
-        "min_duration": game["min_duration"],
-        "min_age": game["min_age"],
-        "difficulty": game["difficulty"],
-        "gameplay": game["gameplay"]
-    })
+    games.append(game)
 
     save_data("games.json", games)
 
@@ -66,15 +56,9 @@ def add_session(session):
 
     sessions = load_data("sessions.json")
 
+    sessions.append(session)
 
-    sessions.append({
-        "game": session.game,
-        "date": session.date,
-        "players": session.players,
-        "duration": session.duration,
-        "winner": session.winner,
-        "winner_score": session.winner_score
-    })
+    save_data("sessions.json", sessions)
 
 
     save_data(

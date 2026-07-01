@@ -1,4 +1,3 @@
-from game import Game
 from player import Player
 from session import PlaySession
 from database import (
@@ -95,41 +94,21 @@ def add_game():
 
     print("\nNieuw bordspel toevoegen")
 
-    # 1. Basisinformatie
-    name = input("Naam van het spel: ")
-
-    version = input("Versie (bijv. Basisspel, Europe, Märklin): ")
-
-    game_type = input(
-        "Type (Basis / Uitbreiding / Reisspel): "
-    )
-
-    # 2. Spel eigenschappen (per versie)
-    min_players = input("Minimum aantal spelers: ")
-    max_players = input("Maximum aantal spelers: ")
-    min_duration = input("Minimum speelduur: ")
-    min_age = input("Minimum leeftijd: ")
-    difficulty = input("Moeilijkheid (1-5): ")
-
-    gameplay = choose_gameplay()
-
-
-    # 3. Opslaan als versie-object
     game = {
-        "name": name,
-        "version": version,
-        "type": game_type,
-        "min_players": min_players,
-        "max_players": max_players,
-        "min_duration": min_duration,
-        "min_age": min_age,
-        "difficulty": difficulty,
-        "gameplay": gameplay
+        "name": input("Naam: "),
+        "version": input("Versie: "),
+        "type": input("Type: "),
+        "min_players": input("Min spelers: "),
+        "max_players": input("Max spelers: "),
+        "min_duration": input("Min speelduur: "),
+        "min_age": input("Min leeftijd: "),
+        "difficulty": input("Moeilijkheid (1-5): "),
+        "gameplay": choose_gameplay()
     }
 
     save_game(game)
 
-    print(f"{name} ({version}) opgeslagen.")
+    print(f"{game['name']} opgeslagen.")
 
 
 def view_games():
@@ -193,56 +172,35 @@ def register_session():
 
     print("\nSpeelbeurt registreren")
 
+    game = input("Welk spel is gespeeld? ")
 
-    game = input(
-        "Welk spel is gespeeld? "
-    )
+    version = input("Welke versie is gespeeld? ")  # ✅ DIT MISTE JE
 
+    date = input("Datum: ")
 
-    date = input(
-        "Datum: "
-    )
-
-
-    players_input = input(
-        "Welke spelers deden mee? "
-    )
-
+    players_input = input("Welke spelers deden mee? ")
 
     players = players_input.split(",")
 
+    duration = input("Speelduur van het potje in minuten: ")
 
-    duration = input(
-        "Speelduur van het potje in minuten: "
-    )
+    winner = input("Winnaar: ")
 
+    winner_score = input("Score van winnaar: ")
 
-    winner = input(
-        "Winnaar: "
-    )
-
-
-    winner_score = input(
-        "Score van winnaar: "
-    )
-
-
-    session = PlaySession(
-        game,
-        date,
-        players,
-        duration,
-        winner,
-        winner_score
-    )
-
+    session = {
+        "game": game,
+        "version": version,
+        "date": date,
+        "players": players,
+        "duration": int(duration),
+        "winner": winner,
+        "winner_score": int(winner_score)
+    }
 
     save_session(session)
 
-
-    print(
-        "Speelbeurt opgeslagen."
-    )
+    print("Speelbeurt opgeslagen.")
 
 
 def show_statistics():

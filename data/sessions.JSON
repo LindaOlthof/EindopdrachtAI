@@ -1,110 +1,41 @@
 [
     {
         "game": "Ticket to ride",
-        "date": "26-06-2026",
-        "winner": "Linda"
-    },
-    {
-        "game": "Catan",
-        "date": "20-06-2026",
-        "winner": "Wendy"
-    },
-    {
-        "game": "Ticket to ride",
-        "date": "27-06-2026",
-        "winner": "Linda"
-    },
-    {
-        "game": "Terraforming Mars",
-        "date": "25-06-2026",
-        "winner": "Richard"
-    },
-    {
-        "game": "Ticket to ride",
-        "date": "23-06-2026",
-        "winner": "Linda"
-    },
-    {
-        "game": "Catan",
-        "date": "23-06-2026",
-        "winner": "Wendy"
-    },
-    {
-        "game": "Ticket to ride",
-        "date": "27-06-2026",
-        "winner": "Linda"
-    },
-    {
-        "game": "Terraforming Mars",
-        "date": "23-06-2026",
-        "winner": "Richard"
-    },
-    {
-        "game": "Ticket to ride",
-        "date": "23-04-2026",
+        "version": "M\u00e4rklin",
+        "date": "23-03-2024",
         "players": [
             "Linda",
-            " Richard",
-            " Wendy",
+            " Edwin",
+            " Stefan"
+        ],
+        "duration": 45,
+        "winner": "Stefan",
+        "winner_score": 45
+    },
+    {
+        "game": "Ticket to ride",
+        "version": "Europe",
+        "date": "30-05-2026",
+        "players": [
+            "Richard",
+            " Linda",
             " Christiaan"
         ],
-        "duration": "45",
+        "duration": 30,
         "winner": "Christiaan",
-        "winner_score": "25"
+        "winner_score": 30
     },
     {
-        "game": "Catan",
-        "date": "23-02-2026",
-        "players": [
-            "Linda",
-            " Wendy"
-        ],
-        "duration": "45",
-        "winner": "Linda",
-        "winner_score": "nvt"
-    },
-    {
-        "game": "Ticket to ride - M\u00e4rklin",
-        "date": "23-02-2026",
-        "players": [
-            "Linda",
-            " Wendy"
-        ],
-        "duration": "45",
-        "winner": "Linda",
-        "winner_score": "nvt"
-    },
-    {
-        "game": "Ticket to ride - M\u00e4rklin",
-        "date": "25-06-2026",
+        "game": "Ticket to ride",
+        "version": "M\u00e4rklin",
+        "date": "23-03-2026",
         "players": [
             "Christiaan",
-            " Linda"
+            " Linda",
+            " Richard"
         ],
-        "duration": "20",
+        "duration": 60,
         "winner": "Christiaan",
-        "winner_score": "nvt"
-    },
-    {
-        "game": "Ticket to ride - M\u00e4rklin",
-        "date": "25-12-2025",
-        "players": [
-            "Christiaan",
-            " Wendy"
-        ],
-        "duration": "25",
-        "winner": "Wendy",
-        "winner_score": "nvt"
-    },
-    {
-        "game": "Ticket to ride - M\u00e4rklin",
-        "date": "30-12-2019",
-        "players": [
-            "Wendy",
-            " Christiaan"
-        ],
-        "duration": "Wendy",
-        "winner": "Wendy",
-        "winner_score": "nvt"
+        "winner_score": 70
     }
 ]
