@@ -172,64 +172,176 @@ def register_session():
 
     print("\nSpeelbeurt registreren")
 
+
     games = get_games()
 
+
     if len(games) == 0:
-        print("Geen spellen beschikbaar.")
+
+        print(
+            "Geen bordspellen beschikbaar. "
+            "Voeg eerst een spel toe."
+        )
+
         return
+
+
+    # -------------------------
+    # STAP 1: HOOFDSPEL KIEZEN
+    # -------------------------
+
+    grouped_games = {}
+
+
+    for game in games:
+
+        name = game["name"]
+
+
+        if name not in grouped_games:
+
+            grouped_games[name] = []
+
+
+        grouped_games[name].append(game)
+
 
 
     print("\nBeschikbare spellen:")
 
-    for index, game in enumerate(games, start=1):
+
+    game_names = list(grouped_games.keys())
+
+
+    for index, name in enumerate(game_names, start=1):
 
         print(
-            f"{index}. {game['name']} - {game['version']}"
+            f"{index}. {name}"
         )
 
 
     while True:
 
-        choice = input("Kies nummer: ")
+        choice = input(
+            "\nKies spelnummer: "
+        )
+
 
         if choice.isdigit():
 
             number = int(choice)
 
-            if 1 <= number <= len(games):
 
-                selected_game = games[number - 1]
+            if 1 <= number <= len(game_names):
+
+                selected_name = game_names[number - 1]
+
                 break
 
 
-        print("Ongeldige keuze, probeer opnieuw.")
+        print(
+            "Ongeldige keuze, probeer opnieuw."
+        )
 
-    date = input("Datum: ")
 
-    players_input = input("Welke spelers deden mee? ")
+
+    # -------------------------
+    # STAP 2: VERSIE KIEZEN
+    # -------------------------
+
+
+    versions = grouped_games[selected_name]
+
+
+    print(
+        f"\nBeschikbare versies van {selected_name}:"
+    )
+
+
+    for index, version in enumerate(versions, start=1):
+
+        print(
+            f"{index}. {version['version']} "
+            f"({version['type']})"
+        )
+
+
+    while True:
+
+        choice = input(
+            "\nKies versienummer: "
+        )
+
+
+        if choice.isdigit():
+
+            number = int(choice)
+
+
+            if 1 <= number <= len(versions):
+
+                selected_game = versions[number - 1]
+
+                break
+
+
+        print(
+            "Ongeldige keuze, probeer opnieuw."
+        )
+
+    date = input(
+        "Datum: "
+    )
+
+
+    players_input = input(
+        "Welke spelers deden mee? "
+    )
+
 
     players = players_input.split(",")
 
-    duration = input("Speelduur van het potje in minuten: ")
 
-    winner = input("Winnaar: ")
+    duration = input(
+        "Speelduur van het potje in minuten: "
+    )
 
-    winner_score = input("Score van winnaar: ")
+
+    winner = input(
+        "Winnaar: "
+    )
+
+
+    winner_score = input(
+        "Score van winnaar: "
+    )
+
 
     session = {
+
         "game": selected_game["name"],
+
         "version": selected_game["version"],
+
         "date": date,
+
         "players": players,
+
         "duration": int(duration),
+
         "winner": winner,
+
         "winner_score": int(winner_score)
+
     }
+
 
     save_session(session)
 
-    print("Speelbeurt opgeslagen.")
 
+    print(
+        "Speelbeurt opgeslagen."
+    )
 
 
 

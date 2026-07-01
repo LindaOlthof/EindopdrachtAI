@@ -61,5 +61,18 @@
         "duration": 50,
         "winner": "Linda",
         "winner_score": 60
+    },
+    {
+        "game": "Ticket to ride",
+        "version": "Europe",
+        "date": "25-02-2026",
+        "players": [
+            "Wendy",
+            " Linda",
+            " Christiaan"
+        ],
+        "duration": 40,
+        "winner": "Wendy",
+        "winner_score": 50
     }
 ]
