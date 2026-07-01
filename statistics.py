@@ -1,5 +1,9 @@
 from database import get_games, get_sessions
 
+def get_base_game_name(name):
+
+    return name
+
 def create_game_key(name, version):
 
     return f"{name} | {version}"
@@ -75,41 +79,39 @@ def top_games_per_gameplay():
 
     result = {}
 
-    # tellen per spel
     for game in games:
 
         gameplay = game["gameplay"]
-        name = create_game_key(
-        game["name"],
-        game["version"]
-        )
+        name = get_base_game_name(game["name"])
 
         count = 0
 
+
         for session in sessions:
 
-            # DIRECT MATCH
-            session_key = create_game_key(
-            session["game"],
-            session["version"]
-            )
-
-        if session_key == name:
+            if session["game"] == game["name"]:
                 count += 1
 
+
         if gameplay not in result:
-            result[gameplay] = []
+            result[gameplay] = {}
 
-        result[gameplay].append((name, count))
 
-    # sorteren NA het verzamelen
+        if name not in result[gameplay]:
+            result[gameplay][name] = 0
+
+
+        result[gameplay][name] += count
+
+
     for gameplay in result:
 
         result[gameplay] = sorted(
-            result[gameplay],
+            result[gameplay].items(),
             key=lambda x: x[1],
             reverse=True
         )[:3]
+
 
     return result
 
@@ -125,10 +127,10 @@ def best_player_per_game():
 
     for session in sessions:
 
-        game = create_game_key(
-            session["game"],
-            session["version"]
+        game = get_base_game_name(
+            session["game"]
         )
+        
         winner = session["winner"]
 
         if game not in result:
