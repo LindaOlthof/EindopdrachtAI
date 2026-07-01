@@ -92,95 +92,102 @@ def main():
 
 
 def add_game():
+
     print("\nNieuw bordspel toevoegen")
 
-    name = input("Naam: ")
+    # 1. Basisinformatie
+    name = input("Naam van het spel: ")
 
-    min_players = input(
-        "Minimum aantal spelers: "
+    version = input("Versie (bijv. Basisspel, Europe, Märklin): ")
+
+    game_type = input(
+        "Type (Basis / Uitbreiding / Reisspel): "
     )
 
-    max_players = input(
-        "Maximum aantal spelers: "
-    )
-
-    min_duration = input(
-        "Minimum speelduur in minuten: "
-    )
-
-    min_age = input(
-        "Minimum leeftijd: "
-    )
-
-    difficulty = input(
-        "Moeilijkheidsscore (1-5): "
-    )
+    # 2. Spel eigenschappen (per versie)
+    min_players = input("Minimum aantal spelers: ")
+    max_players = input("Maximum aantal spelers: ")
+    min_duration = input("Minimum speelduur: ")
+    min_age = input("Minimum leeftijd: ")
+    difficulty = input("Moeilijkheid (1-5): ")
 
     gameplay = choose_gameplay()
 
 
-    game = Game(
-        name,
-        min_players,
-        max_players,
-        min_duration,
-        min_age,
-        difficulty,
-        gameplay
-    )
-
+    # 3. Opslaan als versie-object
+    game = {
+        "name": name,
+        "version": version,
+        "type": game_type,
+        "min_players": min_players,
+        "max_players": max_players,
+        "min_duration": min_duration,
+        "min_age": min_age,
+        "difficulty": difficulty,
+        "gameplay": gameplay
+    }
 
     save_game(game)
 
-    print(f"{game.name} is opgeslagen.")
+    print(f"{name} ({version}) opgeslagen.")
 
 
 def view_games():
+
     print("\nBordspellen:")
 
     games = get_games()
 
     if len(games) == 0:
-        print("Er zijn nog geen bordspellen opgeslagen.")
+        print("Geen spellen gevonden.")
         return
 
+
+    # 1. Groeperen per spelnaam
+    grouped = {}
+
     for game in games:
-        print("----------------")
-        print(f"Naam: {game['name']}")
 
-        print(
-            f"Spelers: {game['min_players']} "
-            f"tot {game['max_players']}"
-        )
+        name = game["name"]
 
-        average_duration = get_average_duration(
-            game["name"]
-        )
+        if name not in grouped:
+            grouped[name] = []
 
-        if average_duration is None:
+        grouped[name].append(game)
+
+
+    # 2. Output per spel
+    for name, versions in grouped.items():
+
+        print("\n----------------")
+        print(name)
+
+
+        for v in versions:
+
             print(
-                f"Speelduur: vanaf "
-                f"{game['min_duration']} minuten"
+                f"  - {v['version']} ({v['type']})"
             )
 
-        else:
             print(
-                f"Gemiddelde speelduur: "
-                f"{average_duration} minuten"
+                f"    Spelers: {v['min_players']} - {v['max_players']}"
             )
 
-        print(
-            f"Leeftijd: {game['min_age']}+"
-        )
+            print(
+                f"    Speelduur: {v['min_duration']} min"
+            )
 
-        print(
-            f"Moeilijkheid: "
-            f"{game['difficulty']}/5"
-        )
+            print(
+                f"    Leeftijd: {v['min_age']}+"
+            )
 
-        print(
-            f"Gameplay: {game['gameplay']}"
-        )
+            print(
+                f"    Moeilijkheid: {v['difficulty']}/5"
+            )
+
+            print(
+                f"    Gameplay: {v['gameplay']}"
+            )
         
 def register_session():
 

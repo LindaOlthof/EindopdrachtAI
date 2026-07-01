@@ -1,6 +1,8 @@
 [
     {
-        "name": "Ticket to ride - M\u00e4rklin",
+        "name": "Ticket to ride",
+        "version": "M\u00e4rklin",
+        "type": "Basis",
         "min_players": "2",
         "max_players": "5",
         "min_duration": "30",
@@ -9,7 +11,20 @@
         "gameplay": "Area control/route building"
     },
     {
-        "name": "Ticket to ride - Rails & Sails",
+        "name": "Ticket to ride",
+        "version": "Europe",
+        "type": "Basis",
+        "min_players": "2",
+        "max_players": "5",
+        "min_duration": "30",
+        "min_age": "8",
+        "difficulty": "2",
+        "gameplay": "Area control/route building"
+    },
+    {
+        "name": "Ticket to ride",
+        "version": "Rails & Sails",
+        "type": "Basis",
         "min_players": "2",
         "max_players": "5",
         "min_duration": "30",
