@@ -1,7 +1,11 @@
 [
-   {
-        "name": "Ticket to ride",
-        "players": "2-5",
-        "duration": "30-60"
+    {
+        "name": "Ticket to ride - M\u00e4rklin",
+        "min_players": "2",
+        "max_players": "5",
+        "min_duration": "30",
+        "min_age": "8",
+        "difficulty": "2",
+        "gameplay": "Area control/Route building"
     }
 ]

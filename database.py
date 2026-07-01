@@ -45,9 +45,14 @@ def add_game(game):
 
     games.append({
         "name": game.name,
-        "players": game.players,
-        "duration": game.duration
+        "min_players": game.min_players,
+        "max_players": game.max_players,
+        "min_duration": game.min_duration,
+        "min_age": game.min_age,
+        "difficulty": game.difficulty,
+        "gameplay": game.gameplay
     })
+
 
     save_data("games.json", games)
 

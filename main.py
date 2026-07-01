@@ -50,10 +50,42 @@ def add_game():
     print("\nNieuw bordspel toevoegen")
 
     name = input("Naam: ")
-    players = input("Aantal spelers: ")
-    duration = input("Speelduur in minuten: ")
 
-    game = Game(name, players, duration)
+    min_players = input(
+        "Minimum aantal spelers: "
+    )
+
+    max_players = input(
+        "Maximum aantal spelers: "
+    )
+
+    min_duration = input(
+        "Minimum speelduur in minuten: "
+    )
+
+    min_age = input(
+        "Minimum leeftijd: "
+    )
+
+    difficulty = input(
+        "Moeilijkheidsscore (1-5): "
+    )
+
+    gameplay = input(
+        "Gameplay: "
+    )
+
+
+    game = Game(
+        name,
+        min_players,
+        max_players,
+        min_duration,
+        min_age,
+        difficulty,
+        gameplay
+    )
+
 
     save_game(game)
 
@@ -72,9 +104,21 @@ def view_games():
     for game in games:
         print("----------------")
         print(f"Naam: {game['name']}")
-        print(f"Aantal spelers: {game['players']}")
-        print(f"Speelduur: {game['duration']} minuten")
-
+        print(
+            f"Spelers: {game['min_players']} "
+            f"tot {game['max_players']}"
+        )
+        print(
+            f"Speelduur: vanaf "
+            f"{game['min_duration']} minuten"
+        )
+        print(f"Leeftijd: {game['min_age']}+")
+        print(
+            f"Moeilijkheid: "
+            f"{game['difficulty']}/5"
+        )
+        print(f"Gameplay: {game['gameplay']}")
+        
 def register_session():
     print("\nSpeelbeurt registreren")
 
