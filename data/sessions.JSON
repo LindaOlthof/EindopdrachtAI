@@ -1,7 +1,7 @@
 [
     {
         "game": "Ticket to ride",
-        "version": "M\u00e4rklin",
+        "version": "Märklin",
         "date": "23-02-2026",
         "players": [
             "Wendy",
@@ -11,5 +11,18 @@
         "duration": 45,
         "winner": "Wendy",
         "winner_score": 60
+    },
+    {
+        "game": "Scrabble",
+        "version": "",
+        "date": "30-03-2026",
+        "players": [
+            "Linda",
+            " Christiaan",
+            " Wendy"
+        ],
+        "duration": 30,
+        "winner": "Wendy",
+        "winner_score": 88
     }
 ]
