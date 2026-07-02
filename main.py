@@ -1,3 +1,4 @@
+from import_games import import_games
 from player import Player
 from session import PlaySession
 from database import (
@@ -59,7 +60,8 @@ def show_menu():
     print("2. Bordspellen bekijken")
     print("3. Speelbeurt registreren")
     print("4. Statistieken bekijken")
-    print("5. Programma afsluiten")
+    print("5. Bordspellen importeren")
+    print("6. Programma afsluiten")
 
 
 def main():
@@ -83,9 +85,27 @@ def main():
             display_statistics()
     
         elif choice == "5":
+
+            print("\nImport opties:")
+            print("1. Database overschrijven")
+            print("2. Alleen nieuwe spellen toevoegen")
+            print("3. Annuleren")
+
+            choice_import = input("Kies optie: ")
+
+            if choice_import == "1":
+                import_games(mode="overwrite")
+
+            elif choice_import == "2":
+                import_games(mode="append")
+
+            else:
+                print("Import geannuleerd.")
+
+        elif choice == "6":
+
             running = False
             print("Programma afgesloten.")
-
         else:
             print("Ongeldige keuze, probeer opnieuw.")
 

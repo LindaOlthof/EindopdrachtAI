@@ -2,43 +2,93 @@ import json
 import os
 
 
+# ----------------------------
+# INSTELLINGEN
+# ----------------------------
+
 DATA_FOLDER = "data"
 
 
+# ----------------------------
+# DATA MAP MAKEN
+# ----------------------------
+
 def create_data_folder():
+
     if not os.path.exists(DATA_FOLDER):
+
         os.makedirs(DATA_FOLDER)
 
 
-def get_file_path(filename):
-    return os.path.join(DATA_FOLDER, filename)
+# ----------------------------
+# VOLLEDIG PAD MAKEN
+# ----------------------------
 
+def get_file_path(filename):
+
+    return os.path.join(
+        DATA_FOLDER,
+        filename
+    )
+
+
+# ----------------------------
+# DATA OPSLAAN
+# ----------------------------
 
 def save_data(filename, data):
+
     create_data_folder()
 
     file_path = get_file_path(filename)
 
-    with open(file_path, "w") as file:
-        json.dump(data, file, indent=4)
+    with open(
+        file_path,
+        "w",
+        encoding="utf-8"
+    ) as file:
 
+        json.dump(
+            data,
+            file,
+            indent=4,
+            ensure_ascii=False
+        )
+
+
+# ----------------------------
+# DATA LADEN
+# ----------------------------
 
 def load_data(filename):
+
     create_data_folder()
 
     file_path = get_file_path(filename)
 
     if not os.path.exists(file_path):
+
         return []
 
-    with open(file_path, "r") as file:
+
+    with open(
+        file_path,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
         content = file.read()
 
         if content == "":
+
             return []
 
         return json.loads(content)
 
+
+# ----------------------------
+# BORDSPELLEN
+# ----------------------------
 
 def add_game(game):
 
@@ -46,20 +96,30 @@ def add_game(game):
 
     games.append(game)
 
-    save_data("games.json", games)
+    save_data(
+        "games.json",
+        games
+    )
+
 
 def get_games():
-    return load_data("games.json")
 
+    return load_data(
+        "games.json"
+    )
+
+
+# ----------------------------
+# SPEELBEURTEN
+# ----------------------------
 
 def add_session(session):
 
-    sessions = load_data("sessions.json")
+    sessions = load_data(
+        "sessions.json"
+    )
 
     sessions.append(session)
-
-    save_data("sessions.json", sessions)
-
 
     save_data(
         "sessions.json",
@@ -68,4 +128,7 @@ def add_session(session):
 
 
 def get_sessions():
-    return load_data("sessions.json")
+
+    return load_data(
+        "sessions.json"
+    )
