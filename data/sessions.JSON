@@ -2,77 +2,14 @@
     {
         "game": "Ticket to ride",
         "version": "M\u00e4rklin",
-        "date": "23-03-2024",
-        "players": [
-            "Linda",
-            " Edwin",
-            " Stefan"
-        ],
-        "duration": 45,
-        "winner": "Stefan",
-        "winner_score": 45
-    },
-    {
-        "game": "Ticket to ride",
-        "version": "Europe",
-        "date": "30-05-2026",
-        "players": [
-            "Richard",
-            " Linda",
-            " Christiaan"
-        ],
-        "duration": 30,
-        "winner": "Christiaan",
-        "winner_score": 30
-    },
-    {
-        "game": "Ticket to ride",
-        "version": "M\u00e4rklin",
-        "date": "23-03-2026",
-        "players": [
-            "Christiaan",
-            " Linda",
-            " Richard"
-        ],
-        "duration": 60,
-        "winner": "Christiaan",
-        "winner_score": 70
-    },
-    {
-        "game": "Ticket to ride",
-        "version": "M\u00e4rklin",
-        "date": "23-02-2016",
-        "players": [
-            "Linda",
-            " Christiaan"
-        ],
-        "duration": 34,
-        "winner": "Linda",
-        "winner_score": 45
-    },
-    {
-        "game": "Ticket to ride",
-        "version": "Asia",
-        "date": "23-02-2018",
-        "players": [
-            "Richard",
-            " Linda"
-        ],
-        "duration": 50,
-        "winner": "Linda",
-        "winner_score": 60
-    },
-    {
-        "game": "Ticket to ride",
-        "version": "Europe",
-        "date": "25-02-2026",
+        "date": "23-02-2026",
         "players": [
             "Wendy",
-            " Linda",
-            " Christiaan"
+            " Christiaan",
+            " Linda"
         ],
-        "duration": 40,
+        "duration": 45,
         "winner": "Wendy",
-        "winner_score": 50
+        "winner_score": 60
     }
 ]

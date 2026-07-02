@@ -15,12 +15,12 @@ from statistics import (
 
 GAMEPLAY_OPTIONS = [
     "Coöperatief",
-    "Deck-building",
-    "Engine-building",
-    "Worker-placement",
-    "Sociale deductie/bluffen",
-    "Area control/route building",
-    "Roll/flip & write"
+    "Sociale interactie",
+    "Strategie & puzzel",
+    "Economie & ontwikkeling",
+    "Kaartoptimalisatie",
+    "Geluk & Dobbelstenen",
+    "Slagenspel"
 ]
 
 def choose_gameplay():
