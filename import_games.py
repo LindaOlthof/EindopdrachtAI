@@ -37,6 +37,7 @@ def import_games(mode="overwrite"):
 
     added = 0
     skipped = 0
+    seen_games = set()
 
     # ----------------------------
     # CSV INLEZEN
@@ -128,6 +129,23 @@ def import_games(mode="overwrite"):
 
                 skipped += 1
                 continue
+            
+            key = (
+                row["name"].strip(),
+                row["version"].strip()
+            )
+
+            if key in seen_games:
+
+                print(
+                    f"⚠ Rij {row_number}: "
+                    "dubbel spel in CSV."
+                )
+
+                skipped += 1
+                continue
+
+            seen_games.add(key)
 
             # Spel toevoegen
             games.append({
