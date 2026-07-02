@@ -55,13 +55,15 @@ def choose_gameplay():
 
 
 def show_menu():
+
     print("\n=== Bordspellen Beheer ===")
     print("1. Bordspel toevoegen")
     print("2. Bordspellen bekijken")
-    print("3. Speelbeurt registreren")
-    print("4. Statistieken bekijken")
-    print("5. Bordspellen importeren")
-    print("6. Programma afsluiten")
+    print("3. Bordspel zoeken")
+    print("4. Speelbeurt registreren")
+    print("5. Statistieken bekijken")
+    print("6. Spellen importeren")
+    print("7. Programma afsluiten")
 
 
 def main():
@@ -79,31 +81,18 @@ def main():
             view_games()
 
         elif choice == "3":
-            register_session()
+            search_games()
 
         elif choice == "4":
-            display_statistics()
-    
+            register_session()
+
         elif choice == "5":
-
-            print("\nImport opties:")
-            print("1. Database overschrijven")
-            print("2. Alleen nieuwe spellen toevoegen")
-            print("3. Annuleren")
-
-            choice_import = input("Kies optie: ")
-
-            if choice_import == "1":
-                import_games(mode="overwrite")
-
-            elif choice_import == "2":
-                import_games(mode="append")
-
-            else:
-                print("Import geannuleerd.")
+            display_statistics()
 
         elif choice == "6":
+            import_games()
 
+        elif choice == "7":
             running = False
             print("Programma afgesloten.")
         else:
@@ -141,26 +130,43 @@ def view_games():
         print("Geen spellen gevonden.")
         return
 
+def search_games():
 
-    # 1. Groeperen per spelnaam
+    print("\n=== Bordspel zoeken ===")
+
+    search = input(
+        "Zoek op (een deel van) de spelnaam: "
+    ).lower()
+
+    games = get_games()
+
     grouped = {}
 
     for game in games:
 
-        name = game["name"]
+       if (
+            search in game["name"].lower()
+            or
+            search in game["version"].lower()
+        ):
 
-        if name not in grouped:
-            grouped[name] = []
+            name = game["name"]
 
-        grouped[name].append(game)
+            if name not in grouped:
+                grouped[name] = []
 
+            grouped[name].append(game)
 
-    # 2. Output per spel
+    if len(grouped) == 0:
+
+        print("\nGeen spellen gevonden.")
+
+        return
+
     for name, versions in grouped.items():
 
         print("\n----------------")
         print(name)
-
 
         for v in versions:
 
@@ -362,7 +368,6 @@ def register_session():
     print(
         "Speelbeurt opgeslagen."
     )
-
 
 
 main()
